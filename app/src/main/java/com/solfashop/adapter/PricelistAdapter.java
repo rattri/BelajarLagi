@@ -36,6 +36,12 @@ import retrofit2.Retrofit;
 public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
     Context context;
     BaseActivity activity;
+//    String id;
+
+    String mId;
+        public PricelistAdapter(String kategori){
+            mId = kategori;
+        }
 
     public PricelistAdapter(BaseActivity activity, Context ctx){
         context = ctx;
@@ -52,8 +58,8 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
     @Override
     public void onBindViewHolder(PricelistHolder holder, int position) {
         final Pricelist pricelist = get(position);
-        holder.textNominal.setText(pricelist.getNominal());
-        holder.textHarga.setText(pricelist.getHarga());
+        holder.textNominal.setText(pricelist.getNama());
+        holder.textHarga.setText("Rp "+pricelist.getHarga());
         holder.lin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -65,7 +71,7 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
 
     public void initData(){
         PricelistService pricelistService = ServiceGenertor.connect(PricelistService.class);
-        Call<List<Pricelist>> pricelistCall = pricelistService.getPricelist(PricelistFragment.newInstance());
+        Call<List<Pricelist>> pricelistCall = pricelistService.getPricelist(mId);
         pricelistCall.enqueue(new Callback<List<Pricelist>>() {
             @Override
             public void onResponse(Call<List<Pricelist>> call, Response<List<Pricelist>> response) {

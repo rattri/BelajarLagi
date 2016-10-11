@@ -14,7 +14,7 @@ import java.io.Serializable;
  * Created by Ratri on 10/3/2016.
  */
 public class Pricelist implements Serializable {
-    String id, nominal, harga, id_kategori;
+    String id, nama, harga, id_kategori;
 
     public String getId() {
         return id;
@@ -24,12 +24,12 @@ public class Pricelist implements Serializable {
         this.id = id;
     }
 
-    public String getNominal() {
-        return nominal;
+    public String getNama() {
+        return nama;
     }
 
-    public void setNominal(String nominal) {
-        this.nominal = nominal;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
     public String getHarga() {

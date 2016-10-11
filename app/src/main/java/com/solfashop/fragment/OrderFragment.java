@@ -57,7 +57,7 @@ public class OrderFragment extends BaseFragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_order:
-//                action button order click
+//                action button checkout_fragment click
                 getBaseActivity().startFragment(BaseActivity.FRAGMENT_ORDER,"ORDER FRAGMENT");
                 break;
 //            case R.id.btn_price:

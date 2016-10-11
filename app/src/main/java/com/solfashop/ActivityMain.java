@@ -56,8 +56,8 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 isParrentView = false;
                 break;
 //            case FRAGMENT_PRICELIST:
-//                    Order order = (Order) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
-//                    PriceFragment priceFragment = PriceFragment.newInstance(order);
+//                    Order checkout_fragment = (Order) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
+//                    PriceFragment priceFragment = PriceFragment.newInstance(checkout_fragment);
 //                    manager.beginTransaction().replace(R.id.container, priceFragment).commit();
 //                    isParrentView = false;
 //

@@ -20,14 +20,14 @@ public class PricelistHolder extends RecyclerView.ViewHolder{
 
     public PricelistHolder(View itemView) {
         super(itemView);
-        textNominal = (TextView)itemView.findViewById(R.id.text_nominal);
+        textNominal = (TextView)itemView.findViewById(R.id.text_nama);
         textHarga = (TextView) itemView.findViewById(R.id.text_harga);
 
         lin = (LinearLayout) itemView.findViewById(R.id.list_item);
-        System.out.println("itemView");
+        System.out.println("itemPricelist");
     }
 
     public PricelistHolder(ViewGroup parrent){
-        this(LayoutInflater.from(parrent.getContext()).inflate(R.layout.voucher_list, parrent,false));
+        this(LayoutInflater.from(parrent.getContext()).inflate(R.layout.price_list, parrent,false));
     }
 }

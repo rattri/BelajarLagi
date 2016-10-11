@@ -30,7 +30,7 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
     String message;
     Voucher voucher;
     Button btnHome, btnOrder, btnPrice;
-    public String kategori;
+    public String kategori, title;
 
     @Nullable
     @Override
@@ -38,13 +38,14 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
         View v = inflater.inflate(R.layout.order_fragment, container, false);
         baseActivity = (BaseActivity) getActivity();
         baseActivity.setBaseFragment(this);/*WAJIB ADA*/
-//        setTitle("Home");
+        title = voucher.getNama();
         kategori = voucher.getId_kategori();
-
-
+        setTitle(title);
+//        priceAdapter = new PriceAdapter(id);
         recyclerView = (RecyclerView) v.findViewById(R.id.rv_order);
         pricelistAdapter = new PricelistAdapter(getBaseActivity(), getContext());
-
+//        PricelistAdapter pricelistAdapter;
+        pricelistAdapter = new PricelistAdapter(kategori);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(pricelistAdapter);
 
@@ -53,9 +54,9 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
         return v;
     }
 
-//    public static PriceFragment newInstance(Order order) {
+//    public static PriceFragment newInstance(Order checkout_fragment) {
 //        PriceFragment fragment = new PriceFragment();
-//        fragment.order = order;
+//        fragment.checkout_fragment = checkout_fragment;
 //        return fragment;
 //    }
 
@@ -69,7 +70,7 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_order:
-//                action button order click
+//                action button checkout_fragment click
                 getBaseActivity().startFragment(BaseActivity.FRAGMENT_ORDER,"ORDER FRAGMENT");
                 break;
 //            case R.id.btn_price:
