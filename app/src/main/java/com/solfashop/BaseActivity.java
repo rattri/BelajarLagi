@@ -30,6 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public static final int FRAGMENT_ORDER = 1;
     public static final int FRAGMENT_PRICELIST = 2;
     public static final int FRAGMENT_LOGIN = 3;
+    public static final int FRAGMENT_CHECKOUT= 4;
     public static final String EXTRA_MODEL = "extra.model";
     public static final String KEY_FRAGMENT = "solfa.fragment";
     protected int currentFragment = FRAGMENT_HOME;

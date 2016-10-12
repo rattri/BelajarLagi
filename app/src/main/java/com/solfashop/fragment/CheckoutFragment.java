@@ -46,12 +46,16 @@ public class CheckoutFragment extends BaseFragment implements View.OnClickListen
         cojumlah=1;
         coharga= new Integer(hargaVoucher);
         hargaVoucher=pricelist.getHarga();
+        namaVoucher=pricelist.getNama();
 
 
         setTitle(title);
 
+        produkView = (TextView) v.findViewById(R.id.produk);
         jumlahView = (TextView) v.findViewById(R.id.jumlah);
         totalView = (TextView) v.findViewById(R.id.total);
+
+        produkView.setText(namaVoucher);
         jumlahView.setText(String.valueOf(cojumlah));
         totalView.setText(String.valueOf(coharga));
         //        priceAdapter = new PriceAdapter(id);
@@ -65,6 +69,34 @@ public class CheckoutFragment extends BaseFragment implements View.OnClickListen
 //        pricelistAdapter.initData();
 
         return v;
+    }
+
+    public void plusJumlah (View v ){
+        cojumlah++;
+        displayJumlah(cojumlah);
+        hitungTotal(cojumlah);
+    }
+
+    public void minusJumlah (View v ){
+        cojumlah--;
+
+        displayJumlah(cojumlah);
+    }
+    public void hitungTotal(int total){
+        total = coharga * cojumlah;
+        displayTotal(total);
+    }
+
+    public void displayJumlah (int jumlah){
+//        TextView jumlahView = (TextView) v.findViewById(R.id.jumlah);
+        jumlahView.setText(String.valueOf(jumlah));
+
+    }
+
+    public void displayTotal (int total){
+//        TextView totalView = (TextView) v.findViewById(R.id.total);
+        totalView.setText(String.valueOf(total));
+
     }
 
 //    public static PriceFragment newInstance(Order checkout_fragment) {

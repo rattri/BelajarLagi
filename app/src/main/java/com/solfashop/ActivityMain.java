@@ -16,12 +16,14 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.solfashop.fragment.BaseFragment;
+import com.solfashop.fragment.CheckoutFragment;
 import com.solfashop.fragment.HomeFragment;
 import com.solfashop.fragment.LoginFragment;
 import com.solfashop.fragment.OrderFragment;
 import com.solfashop.fragment.PriceFragment;
 import com.solfashop.fragment.PricelistFragment;
 import com.solfashop.model.Order;
+import com.solfashop.model.Pricelist;
 import com.solfashop.model.Voucher;
 
 //import org.parceler.Parcels;
@@ -55,15 +57,16 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 manager.beginTransaction().replace(R.id.container, LoginFragment.newInstance("INI LOGIN")).commit();
                 isParrentView = false;
                 break;
-//            case FRAGMENT_PRICELIST:
-//                    Order checkout_fragment = (Order) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
-//                    PriceFragment priceFragment = PriceFragment.newInstance(checkout_fragment);
-//                    manager.beginTransaction().replace(R.id.container, priceFragment).commit();
-//                    isParrentView = false;
-//
-//                break;
-            case FRAGMENT_PRICELIST:
+            case FRAGMENT_CHECKOUT:
+                    System.out.println("ke fragmen");
+                    Pricelist pricelist = (Pricelist) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
+                    CheckoutFragment checkoutFragment = CheckoutFragment.newInstance(pricelist);
+                    manager.beginTransaction().replace(R.id.container, checkoutFragment).commit();
+                    isParrentView = false;
+                System.out.println("ke fragmen");
 
+                break;
+            case FRAGMENT_PRICELIST:
                 Voucher voucher = (Voucher) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
                 PricelistFragment pricelistFragment = PricelistFragment.newInstance(voucher);
                 manager.beginTransaction().replace(R.id.container, pricelistFragment).commit();

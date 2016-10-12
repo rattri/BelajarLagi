@@ -18,7 +18,8 @@
             android:layout_marginTop="2dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="2dp"
-            android:id="@+id/list_item">
+            android:id="@+id/list_item"
+            android:clickable="true">
 
             <TextView
                 android:id="@+id/text_nama"

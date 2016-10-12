@@ -60,9 +60,9 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
         final Pricelist pricelist = get(position);
         holder.textNominal.setText(pricelist.getNama());
         holder.textHarga.setText("Rp "+pricelist.getHarga());
-        holder.lin.setOnClickListener(new View.OnClickListener(){
+        holder.lin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 pricelist.cardOnClock(activity);
             }
         });
