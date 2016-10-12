@@ -54,11 +54,6 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
         return v;
     }
 
-//    public static PriceFragment newInstance(Order checkout_fragment) {
-//        PriceFragment fragment = new PriceFragment();
-//        fragment.checkout_fragment = checkout_fragment;
-//        return fragment;
-//    }
 
     public static PricelistFragment newInstance(Voucher voucher) {
         PricelistFragment fragment = new PricelistFragment();
