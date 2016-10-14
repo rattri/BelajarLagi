@@ -19,8 +19,10 @@ import com.solfashop.model.Pricelist;
  * Created by Ratri on 9/30/2016.
  */
 public class CheckoutFragment extends BaseFragment{
+    public static final String KEY_KATEGORI = "solfa.kategori";
     public TextView textProduk, textHarga, textJumlah, textTotal;
     public int iharga,itotal,ijumlah;
+    String kategori;
 
     private Pricelist pricelist;
 
@@ -39,7 +41,7 @@ public class CheckoutFragment extends BaseFragment{
 
         setTitle("Checkout");
 
-        textProduk.setText(pricelist.getNama());
+        textProduk.setText(kategori+" "+pricelist.getNama());
         textHarga.setText(""+pricelist.getHarga());
         textJumlah.setText("1");
         textTotal.setText(""+pricelist.getHarga());
@@ -47,9 +49,10 @@ public class CheckoutFragment extends BaseFragment{
         return v;
     }
 
-    public static CheckoutFragment newInstance(Pricelist pricelist) {
+    public static CheckoutFragment newInstance(Pricelist pricelist, String kategori) {
         CheckoutFragment fragment = new CheckoutFragment();
         fragment.pricelist = pricelist;
+        fragment.kategori = kategori;
         return fragment;
     }
 

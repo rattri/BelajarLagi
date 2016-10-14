@@ -30,7 +30,7 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
     String message;
     Voucher voucher;
     Button btnHome, btnOrder, btnPrice;
-    public String kategori, title;
+    public String idKategori, title;
 
     @Nullable
     @Override
@@ -38,11 +38,19 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
         View v = inflater.inflate(R.layout.order_fragment, container, false);
         baseActivity = (BaseActivity) getActivity();
         baseActivity.setBaseFragment(this);/*WAJIB ADA*/
+<<<<<<< HEAD
         setTitle(title);
 //        priceAdapter = new PriceAdapter(id);
         recyclerView = (RecyclerView) v.findViewById(R.id.rv_order);
 //        PricelistAdapter pricelistAdapter;
 //        pricelistAdapter = new PricelistAdapter(kategori);
+=======
+
+        setTitle(title);
+//        priceAdapter = new PriceAdapter(id);
+        recyclerView = (RecyclerView) v.findViewById(R.id.rv_order);
+        pricelistAdapter = new PricelistAdapter(getBaseActivity(), idKategori, title);
+>>>>>>> origin/master
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(pricelistAdapter);
 
@@ -56,7 +64,11 @@ public class PricelistFragment extends BaseFragment implements View.OnClickListe
         PricelistFragment fragment = new PricelistFragment();
         fragment.voucher = voucher;
         fragment.title = voucher.getNama();
+<<<<<<< HEAD
         fragment.kategori = voucher.getId_kategori();
+=======
+        fragment.idKategori = voucher.getId_kategori();
+>>>>>>> origin/master
         return fragment;
     }
 

@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.solfashop.ActivityMain;
 import com.solfashop.BaseActivity;
+import com.solfashop.fragment.CheckoutFragment;
 
 import java.io.Serializable;
 
@@ -48,12 +49,13 @@ public class Pricelist implements Serializable {
         this.id_kategori = id_kategori;
     }
 
-    public void cardOnClock(final BaseActivity activity){
+    public void cardOnClock(final BaseActivity activity, String kategori){
 
         Intent i = new Intent(activity, ActivityMain.class);
         i.putExtra(BaseActivity.EXTRA_MODEL, this);
         i.putExtra(BaseActivity.KEY_FRAGMENT, BaseActivity.FRAGMENT_CHECKOUT);
         i.putExtra("judul", "Price");
+        i.putExtra(CheckoutFragment.KEY_KATEGORI, kategori);
         activity.startFragment(i);
         System.out.println("tes");
     }
