@@ -37,15 +37,14 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
     Context context;
     BaseActivity activity;
 //    String id;
-
+    String title;
     String mId;
-        public PricelistAdapter(String kategori){
-            mId = kategori;
-        }
 
-    public PricelistAdapter(BaseActivity activity, Context ctx){
-        context = ctx;
+    public PricelistAdapter(BaseActivity activity, String id, String kategori){
+        context = activity.getBaseContext();
         this.activity = activity;
+        mId = id;
+        title = kategori;
     }
 
     @Override
@@ -63,7 +62,7 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
         holder.lin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pricelist.cardOnClock(activity);
+                pricelist.cardOnClock(activity, title);
             }
         });
 

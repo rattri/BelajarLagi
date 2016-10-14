@@ -58,13 +58,10 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 isParrentView = false;
                 break;
             case FRAGMENT_CHECKOUT:
-                    System.out.println("ke fragmen");
                     Pricelist pricelist = (Pricelist) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
-                    CheckoutFragment checkoutFragment = CheckoutFragment.newInstance(pricelist);
+                    CheckoutFragment checkoutFragment = CheckoutFragment.newInstance(pricelist, caller.getExtras().getString(CheckoutFragment.KEY_KATEGORI));
                     manager.beginTransaction().replace(R.id.container, checkoutFragment).commit();
                     isParrentView = false;
-                System.out.println("ke fragmen");
-
                 break;
             case FRAGMENT_PRICELIST:
                 Voucher voucher = (Voucher) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
