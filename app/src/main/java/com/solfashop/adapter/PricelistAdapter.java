@@ -40,18 +40,19 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
     String title;
     String mId;
 
-<<<<<<< HEAD
-    public PricelistAdapter(BaseActivity activity, String kategori){
-        context = activity.getBaseContext();
-        this.activity = activity;
-        mId = kategori;
-=======
+
+//    public PricelistAdapter(BaseActivity activity, String kategori) {
+//        context = activity.getBaseContext();
+//        this.activity = activity;
+//        mId = kategori;
+//    }
+
     public PricelistAdapter(BaseActivity activity, String id, String kategori){
         context = activity.getBaseContext();
         this.activity = activity;
         mId = id;
         title = kategori;
->>>>>>> origin/master
+
     }
 
     @Override

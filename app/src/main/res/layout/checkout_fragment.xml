@@ -43,7 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="-"
-            android:id="@+id/kurang" />
+            android:id="@+id/kurang"
+
+           />
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,7 +61,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
-            android:id="@+id/tambah" />
+            android:id="@+id/tambah"
+
+            />
 
     </LinearLayout>
 
