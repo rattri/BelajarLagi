@@ -4,57 +4,32 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+import retrofit2.http.PUT;
+
 /**
  * Created by Ratri on 10/18/2016.
  */
     public class CheckoutResponse implements Serializable {
-        @SerializedName("returned_username")
-        private String username;
-        @SerializedName("returned_password")
-        private String password;
-        @SerializedName("message")
-        private String message;
-        @SerializedName("response_code")
-        private int responseCode;
+        String result;
 
-        public CheckoutResponse(String username, String password, String message, int responseCode){
-            this.username = username;
-            this.password = password;
-            this.message = message;
-            this.responseCode = responseCode;
-        }
+    public String getResult() {
+        return result;
+    }
 
-        public String getUsername() {
-            return username;
-        }
+    public void setResult(String result) {
+        this.result = result;
+    }
 
-        public void setUsername(String username) {
-            this.username = username;
-        }
+    public String getMessage() {
+        return message;
+    }
 
-        public String getPassword() {
-            return password;
-        }
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-        public void setPassword(String password) {
-            this.password = password;
-        }
+    String message;
 
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
-        public int getResponseCode() {
-            return responseCode;
-        }
-
-        public void setResponseCode(int responseCode) {
-            this.responseCode = responseCode;
-        }
     }
 
 

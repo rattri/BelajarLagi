@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import com.solfashop.BaseActivity;
 import com.solfashop.R;
+import com.solfashop.adapter.CheckoutAdapter;
+import com.solfashop.adapter.PricelistAdapter;
 import com.solfashop.model.Pricelist;
 
 /**
@@ -26,6 +29,8 @@ public class CheckoutFragment extends BaseFragment {
     private Pricelist pricelist;
     Button btntambah, btnkurang, btnbeli;
     public SharedPreferences pref;
+    CheckoutAdapter checkoutAdapter;
+    public static String id_produk, id_user;
 
 
 
@@ -72,6 +77,7 @@ public class CheckoutFragment extends BaseFragment {
     }
 
 
+
     private View.OnClickListener onKurang() {
         return new View.OnClickListener() {
             @Override
@@ -105,10 +111,16 @@ public class CheckoutFragment extends BaseFragment {
             public  void onClick (View view){
                 pref = getActivity().getSharedPreferences(BaseActivity.LOGIN_OPERATION, Context.MODE_PRIVATE);
                 if (!pref.getBoolean(BaseActivity.IS_LOGGED_IN, false)) {
+                    id_user = pref.getString(BaseActivity.UNIQUE_ID, "");
+                    System.out.println("user"+pref.getString(BaseActivity.UNIQUE_ID, ""));
+                    System.out.println(pricelist.getId());
                     getBaseActivity().startFragment(BaseActivity.FRAGMENT_LOGIN, "Login FRAGMENT");
                 } else {
-
-
+                    id_user = pref.getString(BaseActivity.UNIQUE_ID, "");
+                    System.out.println(id_user);
+                    System.out.println(pricelist.getId());
+                    checkoutAdapter = new CheckoutAdapter( getBaseActivity(), id_user, pricelist.getId(), ijumlah, itotal);
+                    checkoutAdapter.initData();
                 }
 
             }
@@ -131,5 +143,7 @@ public class CheckoutFragment extends BaseFragment {
     public void displayTotal (int total){
         textTotal.setText(String.valueOf(total));
     }
+
+
 
 }
