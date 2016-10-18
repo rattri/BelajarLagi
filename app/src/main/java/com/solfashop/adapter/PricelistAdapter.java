@@ -1,34 +1,20 @@
 package com.solfashop.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
-import com.solfashop.API.Interfaces.OrderService;
 import com.solfashop.API.Interfaces.PricelistService;
-import com.solfashop.API.Interfaces.VoucherService;
-import com.solfashop.API.ServiceGenertor;
+import com.solfashop.API.ServiceGenerator;
 import com.solfashop.BaseActivity;
-import com.solfashop.R;
-import com.solfashop.fragment.PricelistFragment;
-import com.solfashop.holder.OrderHolder;
 import com.solfashop.holder.PricelistHolder;
-import com.solfashop.holder.VoucherHolder;
-import com.solfashop.model.Order;
 import com.solfashop.model.Pricelist;
-import com.solfashop.model.Voucher;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.BaseUrl;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 /**
  * Created by Ratri on 10/3/2016.
@@ -77,7 +63,7 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
     }
 
     public void initData(){
-        PricelistService pricelistService = ServiceGenertor.connect(PricelistService.class);
+        PricelistService pricelistService = ServiceGenerator.connect(PricelistService.class);
         Call<List<Pricelist>> pricelistCall = pricelistService.getPricelist(mId);
         pricelistCall.enqueue(new Callback<List<Pricelist>>() {
             @Override

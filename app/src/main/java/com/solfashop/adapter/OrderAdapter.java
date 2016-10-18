@@ -1,26 +1,21 @@
 package com.solfashop.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.solfashop.API.Interfaces.OrderService;
-import com.solfashop.API.ServiceGenertor;
+import com.solfashop.API.ServiceGenerator;
 import com.solfashop.BaseActivity;
-import com.solfashop.R;
 import com.solfashop.holder.OrderHolder;
 import com.solfashop.model.Order;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 /**
  * Created by Ratri on 10/3/2016.
@@ -58,7 +53,7 @@ public class OrderAdapter extends ListAdapter<Order, OrderHolder> {
     }
 
     public void initData(){
-        OrderService orderService = ServiceGenertor.connect(OrderService.class);
+        OrderService orderService = ServiceGenerator.connect(OrderService.class);
         Call<List<Order>> orderCall = orderService.getOrder();
         orderCall.enqueue(new Callback<List<Order>>() {
             @Override
