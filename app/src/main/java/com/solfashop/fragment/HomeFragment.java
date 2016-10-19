@@ -50,7 +50,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
         btnHome = (Button) v.findViewById(R.id.btn_home);
         btnOrder = (Button) v.findViewById(R.id.btn_order);
         btnPrice = (Button) v.findViewById(R.id.btn_price);
-        textHome.setText(message);
+        //textHome.setText(message);
 
         btnHome.setOnClickListener(homeOnClick());
         btnOrder.setOnClickListener(this);
@@ -77,8 +77,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFragment(new GameFragment(), "GAME");
-        adapter.addFragment(new GameFragment(), "TWO");
-        adapter.addFragment(new GameFragment(), "THREE");
+        adapter.addFragment(new GameFragment(), "PULSA");
+        adapter.addFragment(new GameFragment(), "PLN");
         viewPager.setAdapter(adapter);
     }
 

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.solfashop.API.form.CheckoutForm;
 import com.solfashop.BaseActivity;
 import com.solfashop.R;
 import com.solfashop.adapter.CheckoutAdapter;
@@ -61,6 +62,7 @@ public class CheckoutFragment extends BaseFragment {
         textProduk.setText(kategori+" "+pricelist.getNama());
         textHarga.setText("Harga : " +pricelist.getHarga());
         textJumlah.setText(String.valueOf(ijumlah));
+        textTotal.setText( pricelist.getHarga());
 
 
 //        pref = BaseActivity.pref;
@@ -119,7 +121,15 @@ public class CheckoutFragment extends BaseFragment {
                     id_user = pref.getString(BaseActivity.UNIQUE_ID, "");
                     System.out.println(id_user);
                     System.out.println(pricelist.getId());
-                    checkoutAdapter = new CheckoutAdapter( getBaseActivity(), id_user, pricelist.getId(), ijumlah, itotal);
+
+                    CheckoutForm checkoutForm = new CheckoutForm();
+
+//                    checkoutForm.setJumlah(ijumlah);
+//                    checkoutForm.setTotal(itotal);
+//                    checkoutForm.setProduk(pricelist.getId());
+//                    checkoutForm.setUser(id_user);
+
+                    checkoutAdapter = new CheckoutAdapter( getBaseActivity(), checkoutForm);
                     checkoutAdapter.initData();
                 }
 

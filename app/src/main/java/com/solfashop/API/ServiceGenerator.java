@@ -1,5 +1,8 @@
 package com.solfashop.API;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -28,6 +31,41 @@ public class ServiceGenerator {
                         return response;
                     }
                 }).build();
+//        Gson gson = new GsonBuilder()
+//                .setLenient()
+//                .create();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        return retrofit.create(service);
+    }
+
+    public static <T> T testCnc(Class<T> service){
+        OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request request = chain.request();
+                        Request.Builder requestBuilder = request.newBuilder();
+                        requestBuilder.method(request.method(), request.body());
+//                        if (auth){
+//                            if(type == AUTH_USER){
+//                                // TODO : ini masih belum jalan, masih fatal exception
+//                                try{
+//                                    requestBuilder.header("Authorization", Data.UserData.getId());
+//                                } catch (Exception e){
+//
+//                                }
+//                            }
+//                        }
+                        Response response = chain.proceed(requestBuilder.build());
+                        return response;
+                    }
+                })
+                .build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(okHttpClient)
