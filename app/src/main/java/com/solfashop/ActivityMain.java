@@ -22,6 +22,7 @@ import com.solfashop.fragment.LoginFragment;
 import com.solfashop.fragment.OrderFragment;
 import com.solfashop.fragment.PriceFragment;
 import com.solfashop.fragment.PricelistFragment;
+import com.solfashop.fragment.TransaksiFragment;
 import com.solfashop.model.Order;
 import com.solfashop.model.Pricelist;
 import com.solfashop.model.Voucher;
@@ -70,6 +71,11 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 isParrentView = false;
 
                 break;
+            case FRAGMENT_TRANSAKSI:
+                manager.beginTransaction().replace(R.id.container, TransaksiFragment.newInstance("INI ORDER")).commit();
+                isParrentView = false;
+                break;
+
         }
 
         setupToolbar();
@@ -123,8 +129,12 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 System.out.println("klik di "+item.getItemId());
                 getBaseActivity().startFragment(BaseActivity.FRAGMENT_HOME, "HOME FRAGMENT");
                 break;
+
             case R.id.login:
                 getBaseActivity().startFragment(BaseActivity.FRAGMENT_LOGIN,"LOGIN FRAGMENT");
+                break;
+            case R.id.transaksi:
+                getBaseActivity().startFragment(BaseActivity.FRAGMENT_TRANSAKSI,"TRANSAKSI FRAGMENT");
                 break;
             case R.id.logout:
                 SharedPreferences.Editor editor = pref.edit();

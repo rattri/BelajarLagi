@@ -20,6 +20,6 @@ import retrofit2.http.Query;
  */
 public interface CheckoutService {
     @POST("transaksi.php")
-    Call<test> getCheckoutResponse(@Body CheckoutForm checkoutForm);
+    Call<CheckoutForm> getCheckoutResponse(@Body CheckoutForm checkoutForm);
 }
 

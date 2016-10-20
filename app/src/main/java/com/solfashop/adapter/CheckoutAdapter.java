@@ -55,42 +55,43 @@ public class CheckoutAdapter {
     }
 
     public void initData(){
-        CheckOut checkOut = ServiceGenerator.connect(CheckOut.class);
-        Call<test> testCall = checkOut.checkout(mCheckoutForm);
-        testCall.enqueue(new Callback<test>() {
-            @Override
-            public void onResponse(Call<test> call, Response<test> response) {
-                if (response.isSuccess()){
-                    System.out.println("....................sukses");
-                    System.out.println(response.raw().toString());
-                    System.out.println("produk = "+response.body().getProduk());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<test> call, Throwable t) {
-                System.out.println(t);
-            }
-        });
-//        CheckoutService checkoutService = ServiceGenerator.testCnc(CheckoutService.class);
-//        Call<test> checkoutResponseCall = checkoutService.getCheckoutResponse(mCheckoutForm);
-//        checkoutResponseCall.enqueue(new Callback<test>() {
+//        CheckOut checkOut = ServiceGenerator.connect(CheckOut.class);
+//        Call<test> testCall = checkOut.checkout(mCheckoutForm);
+//        testCall.enqueue(new Callback<test>() {
 //            @Override
 //            public void onResponse(Call<test> call, Response<test> response) {
-//                if(response.isSuccess()){
-//
+//                if (response.isSuccess()){
 //                    System.out.println("....................sukses");
 //                    System.out.println(response.raw().toString());
 //                    System.out.println("produk = "+response.body().getProduk());
-////                    System.out.println(new Gson().toJson(response.body()));
 //                }
-//                else System.out.println("....................else");
 //            }
 //
 //            @Override
 //            public void onFailure(Call<test> call, Throwable t) {
-//                System.out.println("...................."+t.toString());
+//                System.out.println(t);
 //            }
 //        });
+        CheckoutService checkoutService = ServiceGenerator.testCnc(CheckoutService.class);
+        Call<CheckoutForm> checkoutResponseCall = checkoutService.getCheckoutResponse(mCheckoutForm);
+        checkoutResponseCall.enqueue(new Callback<CheckoutForm>() {
+            @Override
+            public void onResponse(Call<CheckoutForm> call, Response<CheckoutForm> response) {
+                if(response.isSuccess()){
+
+                    System.out.println("....................sukses");
+                    System.out.println(response.raw().toString());
+//                    System.out.println("produk = "+response.body().getProduk());
+                    System.out.println(new Gson().toJson(response.body()));
+                    CheckoutForm.goToDetail(activity, mCheckoutForm);
+                }
+                else System.out.println("....................else");
+            }
+
+            @Override
+            public void onFailure(Call<CheckoutForm> call, Throwable t) {
+                System.out.println("...................."+t.toString());
+            }
+        });
     }
 }

@@ -53,6 +53,7 @@ public class CheckoutFragment extends BaseFragment {
         btnbeli.setOnClickListener(onBeli());
 
         ijumlah= 1;
+        hitungTotal(ijumlah);
 
 
         baseActivity.setBaseFragment(this); /*WAJIB ADA*/
@@ -124,10 +125,10 @@ public class CheckoutFragment extends BaseFragment {
 
                     CheckoutForm checkoutForm = new CheckoutForm();
 
-//                    checkoutForm.setJumlah(ijumlah);
-//                    checkoutForm.setTotal(itotal);
-//                    checkoutForm.setProduk(pricelist.getId());
-//                    checkoutForm.setUser(id_user);
+                    checkoutForm.setJumlah(""+ijumlah);
+                    checkoutForm.setTotal(""+itotal);
+                    checkoutForm.setProduk(pricelist.getId());
+                    checkoutForm.setUser(id_user);
 
                     checkoutAdapter = new CheckoutAdapter( getBaseActivity(), checkoutForm);
                     checkoutAdapter.initData();
@@ -151,6 +152,7 @@ public class CheckoutFragment extends BaseFragment {
     }
 
     public void displayTotal (int total){
+        itotal = total;
         textTotal.setText(String.valueOf(total));
     }
 

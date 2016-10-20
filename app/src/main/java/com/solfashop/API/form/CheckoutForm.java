@@ -1,15 +1,17 @@
 package com.solfashop.API.form;
 
+import com.solfashop.BaseActivity;
+
 import retrofit2.http.Query;
 
 /**
  * Created by Ratri on 10/18/2016.
  */
 public class CheckoutForm {
-    String user = "55";
-    String produk = "55";
-    String jumlah = "1000";
-    String total = "2";
+    String user;
+    String produk;
+    String jumlah;
+    String total;
 
     public String getUser() {
         return user;
@@ -42,4 +44,12 @@ public class CheckoutForm {
     public void setTotal(String total) {
         this.total = total;
     }
-}
+
+    public static void goToDetail(BaseActivity activity, CheckoutForm mCheckoutForm) {
+    }
+
+
+    }
+
+
+
