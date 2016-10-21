@@ -1,9 +1,16 @@
 package com.solfashop.model;
 
+import android.content.Intent;
+
+import com.solfashop.ActivityMain;
+import com.solfashop.BaseActivity;
+
+import java.io.Serializable;
+
 /**
  * Created by Ratri on 10/20/2016.
  */
-public class Transaksi {
+public class Transaksi implements Serializable {
     String id;
     String voucher;
     String nominal;
@@ -86,6 +93,14 @@ public class Transaksi {
     }
 
     String status;
+
+    public void transaksiOnClick (final BaseActivity activity){
+        Intent i = new Intent(activity, ActivityMain.class);
+        i.putExtra(BaseActivity.EXTRA_MODEL, this);
+        i.putExtra(BaseActivity.KEY_FRAGMENT, BaseActivity.FRAGMENT_DETAILTRANSAKSI);
+        i.putExtra("judul", "Detail Order");
+        activity.startFragment(i);
+    }
 
 
 }

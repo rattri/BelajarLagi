@@ -26,7 +26,7 @@ import retrofit2.Response;
 public class TransaksiAdapter extends ListAdapter<Transaksi, TransaksiHolder> {
     Context context;
     BaseActivity activity;
-    //    String id;
+    String iuser;
     String title;
     String mId;
 
@@ -37,8 +37,9 @@ public class TransaksiAdapter extends ListAdapter<Transaksi, TransaksiHolder> {
 //        mId = kategori;
 //    }
 
-    public TransaksiAdapter(BaseActivity activity, Context ctx){
-        context = ctx;
+    public TransaksiAdapter(BaseActivity activity, String user){
+        iuser = user;
+        context = activity.getBaseContext();
         this.activity = activity;
     }
 
@@ -55,20 +56,20 @@ public class TransaksiAdapter extends ListAdapter<Transaksi, TransaksiHolder> {
         holder.textTanggal.setText(transaksi.getTanggal());
         holder.textProduk.setText(transaksi.getVoucher());
         holder.textJam.setText((transaksi.getJam()));
-        holder.textNominal.setText(transaksi.getNominal());
+        holder.textNominal.setText(transaksi.getNominal()+ " x " + transaksi.getJumlah());
         holder.textStatus.setText(transaksi.getStatus());
-//        holder.lin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                transaksi.cardOnClock(activity, title);
-//            }
-//        });
+        holder.lin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                transaksi.transaksiOnClick(activity);
+            }
+        });
 
     }
 
     public void initData(){
         TransaksiService transaksiService= ServiceGenerator.connect(TransaksiService.class);
-        Call<List<Transaksi>> transaksiCall = transaksiService.getTransaksi();
+        Call<List<Transaksi>> transaksiCall = transaksiService.getTransaksi(iuser);
         transaksiCall.enqueue(new Callback<List<Transaksi>>() {
             @Override
             public void onResponse(Call<List<Transaksi>> call, Response<List<Transaksi>> response) {

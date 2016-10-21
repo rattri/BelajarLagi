@@ -1,5 +1,7 @@
 package com.solfashop.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -23,10 +25,11 @@ public class TransaksiFragment extends BaseFragment implements View.OnClickListe
 
     RecyclerView recyclerView;
     TransaksiAdapter transaksiAdapter;
-    String message;
+    String message, id_user;
     Voucher voucher;
     Button btnHome, btnOrder, btnPrice;
     public String idKategori, title;
+    public SharedPreferences pref;
 
     @Nullable
     @Override
@@ -43,8 +46,10 @@ public class TransaksiFragment extends BaseFragment implements View.OnClickListe
 
         title="Transaksi";
         setTitle(title);
+        pref = getActivity().getSharedPreferences(BaseActivity.LOGIN_OPERATION, Context.MODE_PRIVATE);
+        id_user = pref.getString(BaseActivity.UNIQUE_ID, "");
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
-        transaksiAdapter = new TransaksiAdapter(getBaseActivity(), getContext());
+        transaksiAdapter = new TransaksiAdapter(getBaseActivity(), id_user);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(transaksiAdapter);
         transaksiAdapter.initData();

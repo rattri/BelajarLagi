@@ -6,18 +6,18 @@
             android:id="@+id/beranda"
             android:icon="@drawable/ic_menu_camera"
             android:title="Beranda" />
-        <item
-            android:id="@+id/pesan"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Pesan" />
+        <!--<item-->
+            <!--android:id="@+id/pesan"-->
+            <!--android:icon="@drawable/ic_menu_camera"-->
+            <!--android:title="Pesan" />-->
         <item
             android:id="@+id/transaksi"
             android:icon="@drawable/ic_menu_camera"
             android:title="Transaksi" />
-        <item
-            android:id="@+id/pengaturan"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Pengaturan" />
+        <!--<item-->
+            <!--android:id="@+id/pengaturan"-->
+            <!--android:icon="@drawable/ic_menu_camera"-->
+            <!--android:title="Pengaturan" />-->
 
     </group>
 

@@ -40,7 +40,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public BaseFragment fragment;
     public Toolbar toolbar;
     public NavigationView navigationView;
-    public TextView welcome;
+    public TextView welcome, userName;
     DrawerLayout drawer;
     public boolean isParrentView = true;
 
@@ -81,13 +81,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         View header = navigationView.getHeaderView(0);
         welcome = (TextView) header.findViewById(R.id.welcome);
+        userName = (TextView) header.findViewById(R.id.username);
         pref = getSharedPreferences(BaseActivity.LOGIN_OPERATION, Context.MODE_PRIVATE);
         if (!pref.getBoolean(IS_LOGGED_IN, false)) {
             navigationView.inflateMenu(R.menu.login);
             welcome.setText("Kamu belum login");
         } else {
             navigationView.inflateMenu(R.menu.activity_main_login);
-            welcome.setText("Selamat Datang "+ pref.getString(NAME, ""));
+            welcome.setText("Selamat Datang ");
+            //userName.setText(pref.getString(NAME, ""));
         }
 
 

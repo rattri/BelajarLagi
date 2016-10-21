@@ -50,7 +50,6 @@ public class Pricelist implements Serializable {
     }
 
     public void cardOnClock(final BaseActivity activity, String kategori){
-
         Intent i = new Intent(activity, ActivityMain.class);
         i.putExtra(BaseActivity.EXTRA_MODEL, this);
         i.putExtra(BaseActivity.KEY_FRAGMENT, BaseActivity.FRAGMENT_CHECKOUT);
