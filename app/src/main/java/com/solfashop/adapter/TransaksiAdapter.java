@@ -52,8 +52,11 @@ public class TransaksiAdapter extends ListAdapter<Transaksi, TransaksiHolder> {
     @Override
     public void onBindViewHolder(TransaksiHolder holder, int position) {
         final Transaksi transaksi = get(position);
-        holder.textTanggal.setText(transaksi.getWaktu());
-        holder.textProduk.setText(transaksi.getVoucher()+" "+transaksi.getNominal());
+        holder.textTanggal.setText(transaksi.getTanggal());
+        holder.textProduk.setText(transaksi.getVoucher());
+        holder.textJam.setText((transaksi.getJam()));
+        holder.textNominal.setText(transaksi.getNominal());
+        holder.textStatus.setText(transaksi.getStatus());
 //        holder.lin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

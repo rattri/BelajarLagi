@@ -14,33 +14,67 @@
         android:paddingLeft="16dp"
         android:paddingBottom="10dp"
         android:background="#e7e1e1"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="2dp"
         android:id="@+id/list_item"
         android:clickable="true">
 
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#0b0b0b"
+                android:id="@+id/text_tanggal"
+                android:paddingTop="8dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Medium Text"
+                android:id="@+id/jam"
+                android:hyphenationFrequency="none" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp">
+
+            <TextView
+                android:id="@+id/text_produk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#636262"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Medium Text"
+                android:id="@+id/nominal" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="170dp"
-            android:textColor="#0b0b0b"
-            android:id="@+id/text_tanggal"
-            android:paddingTop="8dp"
-            android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-        <TextView
-            android:id="@+id/text_produk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#636262"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp" />
-
+            android:text="Small Text"
+            android:id="@+id/status" />
     </LinearLayout>
 
 </RelativeLayout>

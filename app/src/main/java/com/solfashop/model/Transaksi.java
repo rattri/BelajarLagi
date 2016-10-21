@@ -4,7 +4,14 @@ package com.solfashop.model;
  * Created by Ratri on 10/20/2016.
  */
 public class Transaksi {
-    String id, voucher, nominal, harga, jumlah, total, waktu, status;
+    String id;
+    String voucher;
+    String nominal;
+    String harga;
+    String jumlah;
+    String total;
+    String tanggal;
+    String jam;
 
     public String getId() {
         return id;
@@ -54,12 +61,20 @@ public class Transaksi {
         this.total = total;
     }
 
-    public String getWaktu() {
-        return waktu;
+    public String getTanggal() {
+        return tanggal;
     }
 
-    public void setWaktu(String waktu) {
-        this.waktu = waktu;
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public String getJam() {
+        return jam;
+    }
+
+    public void setJam(String jam) {
+        this.jam = jam;
     }
 
     public String getStatus() {
@@ -69,4 +84,8 @@ public class Transaksi {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    String status;
+
+
 }

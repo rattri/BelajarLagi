@@ -14,13 +14,18 @@ import com.solfashop.R;
  */
 public class TransaksiHolder extends RecyclerView.ViewHolder{
 
-        public TextView textTanggal, textProduk ;
+        public TextView textTanggal, textProduk, textJam, textNominal, textStatus ;
         public LinearLayout lin;
 
         public TransaksiHolder(View itemView) {
             super(itemView);
             textTanggal = (TextView)itemView.findViewById(R.id.text_tanggal);
             textProduk = (TextView) itemView.findViewById(R.id.text_produk);
+            textJam =(TextView) itemView.findViewById(R.id.jam);
+            textNominal= (TextView) itemView.findViewById(R.id.nominal) ;
+            textStatus=(TextView) itemView.findViewById(R.id.status);
+
+
 
             lin = (LinearLayout) itemView.findViewById(R.id.list_item);
             System.out.println("itemPricelist");
