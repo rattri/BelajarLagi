@@ -22,6 +22,7 @@ import com.solfashop.fragment.HomeFragment;
 import com.solfashop.fragment.LoginFragment;
 import com.solfashop.fragment.OrderFragment;
 import com.solfashop.fragment.PricelistFragment;
+import com.solfashop.fragment.RegisterFragment;
 import com.solfashop.fragment.TransaksiFragment;
 import com.solfashop.model.Pricelist;
 import com.solfashop.model.Transaksi;
@@ -83,6 +84,10 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 Transaksi transaksi = (Transaksi) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
                 DetailtransaksiFragment detailtransaksiFragment = DetailtransaksiFragment.newInstance(transaksi);
                 manager.beginTransaction().replace(R.id.container, detailtransaksiFragment).commit();
+                isParrentView = false;
+                break;
+            case FRAGMENT_REGISTER:
+                manager.beginTransaction().replace(R.id.container, RegisterFragment.newInstance("INI ORDER")).commit();
                 isParrentView = false;
                 break;
 

@@ -94,8 +94,8 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener{
 
 //
             case R.id.tv_register:
-//                goToRegister();
-//                break;
+                goToRegister();
+                break;
             case R.id.btn_login:
                 String email = et_email.getText().toString();
                 String password = et_password.getText().toString();
@@ -171,13 +171,10 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener{
 //        ft.commit();
 //    }
 
-//    private void goToRegister(){
-//
-//        Fragment register = new RegisterFragment();
-//        FragmentTransaction ft = getFragmentManager().beginTransaction();
-//        ft.replace(R.id.fragment_frame,register);
-//        ft.commit();
-//    }
+    private void goToRegister(){
+
+        getBaseActivity().startFragment(BaseActivity.FRAGMENT_REGISTER, "REGISTER");
+    }
 
 //    private void goToProfile(){
 //

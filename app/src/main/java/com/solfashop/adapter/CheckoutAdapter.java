@@ -56,23 +56,8 @@ public class CheckoutAdapter {
     }
 
     public void initData(){
-//        CheckOut checkOut = ServiceGenerator.connect(CheckOut.class);
-//        Call<test> testCall = checkOut.checkout(mCheckoutForm);
-//        testCall.enqueue(new Callback<test>() {
-//            @Override
-//            public void onResponse(Call<test> call, Response<test> response) {
-//                if (response.isSuccess()){
-//                    System.out.println("....................sukses");
-//                    System.out.println(response.raw().toString());
-//                    System.out.println("produk = "+response.body().getProduk());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<test> call, Throwable t) {
-//                System.out.println(t);
-//            }
-//        });
+        System.out.println(mCheckoutForm);
+
         CheckoutService checkoutService = ServiceGenerator.testCnc(CheckoutService.class);
         Call<CheckoutForm> checkoutResponseCall = checkoutService.getCheckoutResponse(mCheckoutForm);
         checkoutResponseCall.enqueue(new Callback<CheckoutForm>() {
