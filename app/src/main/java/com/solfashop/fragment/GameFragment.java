@@ -28,11 +28,11 @@ import java.util.List;
 /**
  * Created by Ratri on 9/30/2016.
  */
-public class GameFragment extends BaseFragment implements View.OnClickListener{
+public class GameFragment extends BaseFragment{
 
     RecyclerView recyclerView;
     VoucherAdapter voucherAdapter;
-    String message;
+    String message, ivoucher;
     Button btnHome, btnOrder, btnPrice;
 
     @Nullable
@@ -42,9 +42,9 @@ public class GameFragment extends BaseFragment implements View.OnClickListener{
         baseActivity = (BaseActivity) getActivity();
         baseActivity.setBaseFragment(this);/*WAJIB ADA*/
 //        setTitle("Home");
-
+        ivoucher="1";
         recyclerView = (RecyclerView) v.findViewById(R.id.rv_order);
-        voucherAdapter = new VoucherAdapter(getBaseActivity(), getContext());
+        voucherAdapter = new VoucherAdapter(getBaseActivity(), ivoucher);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -59,47 +59,48 @@ public class GameFragment extends BaseFragment implements View.OnClickListener{
         return v;
     }
 
-    public static GameFragment newInstance(String message) {
+    public static GameFragment newInstance(String message, String ivoucher) {
         GameFragment fragment = new GameFragment();
         fragment.message = message;
+        fragment.ivoucher =ivoucher;
         return fragment;
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_order:
-//                action button checkout_fragment click
-                getBaseActivity().startFragment(BaseActivity.FRAGMENT_ORDER,"ORDER FRAGMENT");
-                break;
-//            case R.id.btn_price:
-////                action button price click
+//    @Override
+//    public void onClick(View view) {
+//        switch (view.getId()){
+//            case R.id.btn_order:
+////                action button checkout_fragment click
+//                getBaseActivity().startFragment(BaseActivity.FRAGMENT_ORDER,"ORDER FRAGMENT");
 //                break;
-        }
-    }
-    private View.OnClickListener homeOnClick() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getBaseActivity().startFragment(BaseActivity.FRAGMENT_HOME, "ORDER HOME");
-            }
-        };
-    }
-
-    class priceOnClick implements View.OnClickListener{
-        String id;
-        int order;
-
-        public priceOnClick(String id, int order){
-            this.id = id;
-            this.order = order;
-        }
-
-        @Override
-        public void onClick(View view) {
-            getBaseActivity().startFragment(BaseActivity.FRAGMENT_PRICELIST, "PriceList FRAGMENT");
-        }
-    }
+////            case R.id.btn_price:
+//////                action button price click
+////                break;
+//        }
+//    }
+//    private View.OnClickListener homeOnClick() {
+//        return new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                getBaseActivity().startFragment(BaseActivity.FRAGMENT_HOME, "ORDER HOME");
+//            }
+//        };
+//    }
+//
+//    class priceOnClick implements View.OnClickListener{
+//        String id;
+//        int order;
+//
+//        public priceOnClick(String id, int order){
+//            this.id = id;
+//            this.order = order;
+//        }
+//
+//        @Override
+//        public void onClick(View view) {
+//            getBaseActivity().startFragment(BaseActivity.FRAGMENT_PRICELIST, "PriceList FRAGMENT");
+//        }
+//    }
 
     /**
      * RecyclerView item decoration - give equal margin around grid item

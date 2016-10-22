@@ -14,5 +14,5 @@ import retrofit2.http.Query;
  */
 public interface TransaksiService {
     @GET("list_transaksi.php")
-    Call<List<Transaksi>> getTransaksi(@Query("" ) String user);
+    Call<List<Transaksi>> getTransaksi(@Query("user" ) String iduser);
 }

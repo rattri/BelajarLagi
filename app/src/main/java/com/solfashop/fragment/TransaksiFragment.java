@@ -48,6 +48,7 @@ public class TransaksiFragment extends BaseFragment implements View.OnClickListe
         setTitle(title);
         pref = getActivity().getSharedPreferences(BaseActivity.LOGIN_OPERATION, Context.MODE_PRIVATE);
         id_user = pref.getString(BaseActivity.UNIQUE_ID, "");
+        System.out.println(id_user +"id");
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         transaksiAdapter = new TransaksiAdapter(getBaseActivity(), id_user);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -15,16 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.solfashop.fragment.BaseFragment;
 import com.solfashop.fragment.CheckoutFragment;
-import com.solfashop.fragment.DetailFragment;
+import com.solfashop.fragment.DetailorderFragment;
+import com.solfashop.fragment.DetailtransaksiFragment;
 import com.solfashop.fragment.HomeFragment;
 import com.solfashop.fragment.LoginFragment;
 import com.solfashop.fragment.OrderFragment;
-import com.solfashop.fragment.PriceFragment;
 import com.solfashop.fragment.PricelistFragment;
 import com.solfashop.fragment.TransaksiFragment;
-import com.solfashop.model.Order;
 import com.solfashop.model.Pricelist;
 import com.solfashop.model.Transaksi;
 import com.solfashop.model.Voucher;
@@ -52,10 +50,10 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 manager.beginTransaction().replace(R.id.container, HomeFragment.newInstance("INI HOME")).commit();
                 isParrentView = true;
                 break;
-            case FRAGMENT_ORDER:
-                manager.beginTransaction().replace(R.id.container, OrderFragment.newInstance("INI ORDER")).commit();
-                isParrentView = false;
-                break;
+//            case FRAGMENT_ORDER:
+//                manager.beginTransaction().replace(R.id.container, OrderFragment.newInstance("INI ORDER")).commit();
+//                isParrentView = false;
+//                break;
             case FRAGMENT_LOGIN:
                 manager.beginTransaction().replace(R.id.container, LoginFragment.newInstance("INI LOGIN")).commit();
                 isParrentView = false;
@@ -73,16 +71,19 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
                 isParrentView = false;
 
                 break;
+            case FRAGMENT_ORDER:
+                manager.beginTransaction().replace(R.id.container, DetailorderFragment.newInstance("INI ORDER")).commit();
+                isParrentView = false;
+                break;
             case FRAGMENT_TRANSAKSI:
                 manager.beginTransaction().replace(R.id.container, TransaksiFragment.newInstance("INI ORDER")).commit();
                 isParrentView = false;
                 break;
             case FRAGMENT_DETAILTRANSAKSI  :
                 Transaksi transaksi = (Transaksi) caller.getSerializableExtra(BaseActivity.EXTRA_MODEL);
-                DetailFragment detailFragment = DetailFragment.newInstance(transaksi);
-                manager.beginTransaction().replace(R.id.container, detailFragment).commit();
+                DetailtransaksiFragment detailtransaksiFragment = DetailtransaksiFragment.newInstance(transaksi);
+                manager.beginTransaction().replace(R.id.container, detailtransaksiFragment).commit();
                 isParrentView = false;
-
                 break;
 
         }

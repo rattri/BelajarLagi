@@ -14,5 +14,5 @@ import retrofit2.http.Query;
  */
 public interface VoucherService {
     @GET("voucherlist.php")
-    Call<List<Voucher>> getVoucher(@Query("a") String a);
+    Call<List<Voucher>> getVoucher(@Query("name") String a);
 }

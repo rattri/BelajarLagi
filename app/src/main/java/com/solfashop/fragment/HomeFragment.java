@@ -28,12 +28,15 @@ import java.util.List;
 /**
  * Created by Ratri on 9/30/2016.
  */
-public class HomeFragment extends BaseFragment implements View.OnClickListener{
+public class HomeFragment extends BaseFragment{
     TextView textHome;
     String message;
     Button btnHome, btnOrder, btnPrice;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+   public static String VOUCHER_GAME="1";
+    public static String VOUCHER_PULSA="2"  ;
+
 
     private Toolbar toolbar;
     private TextView welcome;
@@ -52,9 +55,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
         btnPrice = (Button) v.findViewById(R.id.btn_price);
         //textHome.setText(message);
 
-        btnHome.setOnClickListener(homeOnClick());
-        btnOrder.setOnClickListener(this);
-        btnPrice.setOnClickListener(new priceOnClick("ini ID", 7));
 
         baseActivity.setBaseFragment(this);/*WAJIB ADA*/
 
@@ -77,8 +77,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFragment(new GameFragment(), "GAME");
-        adapter.addFragment(new GameFragment(), "PULSA");
-        adapter.addFragment(new GameFragment(), "PLN");
+        adapter.addFragment(new PulsaFragment(), "PULSA");
+        adapter.addFragment(new PlnFragments(), "PLN");
         viewPager.setAdapter(adapter);
     }
 
@@ -103,6 +103,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
         public void addFragment(Fragment fragment, String title) {
             mFragmentList.add(fragment);
             mFragmentTitleList.add(title);
+
         }
 
         @Override
@@ -111,41 +112,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
         }
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_order:
-//                action button checkout_fragment click
-                getBaseActivity().startFragment(BaseActivity.FRAGMENT_ORDER,"ORDER FRAGMENT");
-                break;
-//            case R.id.btn_price:
-////                action button price click
-//                break;
-        }
-    }
-    private View.OnClickListener homeOnClick() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getBaseActivity().startFragment(BaseActivity.FRAGMENT_HOME, "HOME");
-            }
-        };
-    }
-
-    class priceOnClick implements View.OnClickListener{
-        String id;
-        int order;
-
-        public priceOnClick(String id, int order){
-            this.id = id;
-            this.order = order;
-        }
-
-        @Override
-        public void onClick(View view) {
-            getBaseActivity().startFragment(BaseActivity.FRAGMENT_PRICELIST, "PriceList FRAGMENT");
-        }
     }
 
 
-}

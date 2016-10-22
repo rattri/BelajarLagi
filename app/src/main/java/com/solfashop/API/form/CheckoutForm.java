@@ -13,7 +13,7 @@ public class CheckoutForm {
     String jumlah;
     String total;
 
-    public String getUser() {
+     public String getUser() {
         return user;
     }
 

@@ -44,7 +44,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     DrawerLayout drawer;
     public boolean isParrentView = true;
 
-    public static final String BASE_URL = "http://solfacell.solfagaming.com/";
+    public static final String BASE_URL = "http://solfadev.net/api/vouchershop/";
     public static final String REGISTER_OPERATION = "register";
     public static final String LOGIN_OPERATION = "login";
     public static final String CHANGE_PASSWORD_OPERATION = "chgPass";

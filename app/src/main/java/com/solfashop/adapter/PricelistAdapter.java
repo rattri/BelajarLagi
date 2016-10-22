@@ -22,16 +22,10 @@ import retrofit2.Response;
 public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
     Context context;
     BaseActivity activity;
-//    String id;
+
     String title;
     String mId;
 
-
-//    public PricelistAdapter(BaseActivity activity, String kategori) {
-//        context = activity.getBaseContext();
-//        this.activity = activity;
-//        mId = kategori;
-//    }
 
     public PricelistAdapter(BaseActivity activity, String id, String kategori){
         context = activity.getBaseContext();
@@ -70,6 +64,7 @@ public class PricelistAdapter extends ListAdapter<Pricelist, PricelistHolder> {
             public void onResponse(Call<List<Pricelist>> call, Response<List<Pricelist>> response) {
                 if(response.isSuccess()){
                     addAll(response.body());
+                    System.out.println(response.raw().toString());
                 }
             }
 

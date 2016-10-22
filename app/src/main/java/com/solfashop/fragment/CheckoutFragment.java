@@ -129,9 +129,10 @@ public class CheckoutFragment extends BaseFragment {
                     checkoutForm.setTotal(""+itotal);
                     checkoutForm.setProduk(pricelist.getId());
                     checkoutForm.setUser(id_user);
-
                     checkoutAdapter = new CheckoutAdapter( getBaseActivity(), checkoutForm);
                     checkoutAdapter.initData();
+
+                    getBaseActivity().startFragment(BaseActivity.FRAGMENT_ORDER,"DETAIL ORDER FRAGMENT");
                 }
 
             }

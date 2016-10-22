@@ -39,7 +39,7 @@ public class CheckoutAdapter {
 
     CheckoutForm mCheckoutForm;
 
-    String produk, user;
+    String produk, user, kategori;
     int ijumlah, itotal;
 
     public CheckoutAdapter(BaseActivity activity, CheckoutForm checkoutForm){
@@ -49,6 +49,7 @@ public class CheckoutAdapter {
 //        user = id_user;
 //        ijumlah = jumlah;
 //        itotal = total;
+        //kategori=ikategori;
         mCheckoutForm = checkoutForm;
 
 

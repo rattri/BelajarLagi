@@ -23,9 +23,12 @@ import retrofit2.Response;
 public class VoucherAdapter extends ListAdapter<Voucher, VoucherHolder> {
     Context context;
     BaseActivity activity;
+    String nvoucher;
 
-    public VoucherAdapter(BaseActivity activity, Context ctx){
-        context = ctx;
+
+    public VoucherAdapter(BaseActivity activity, String ivoucher){
+        context = activity.getBaseContext();
+        nvoucher=ivoucher;
         this.activity = activity;
     }
 
@@ -52,12 +55,13 @@ public class VoucherAdapter extends ListAdapter<Voucher, VoucherHolder> {
 
     public void initData(){
         VoucherService voucherService = ServiceGenerator.connect(VoucherService.class);
-        Call<List<Voucher>> voucherCall = voucherService.getVoucher("1");
+        Call<List<Voucher>> voucherCall = voucherService.getVoucher(nvoucher);
         voucherCall.enqueue(new Callback<List<Voucher>>() {
             @Override
             public void onResponse(Call<List<Voucher>> call, Response<List<Voucher>> response) {
                 if(response.isSuccess()){
                     addAll(response.body());
+                    System.out.println(response.raw().toString());
                 }
             }
 
