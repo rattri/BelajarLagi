@@ -130,7 +130,10 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        return false;
+
+        return true
+
+                ;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -193,5 +196,13 @@ public class ActivityMain extends BaseActivity implements NavigationView.OnNavig
 
         return super.onOptionsItemSelected(item);
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
+
 
 }
